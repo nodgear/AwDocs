@@ -1,0 +1,1583 @@
+{
+    "category_types": [
+        "classes",
+        "enums",
+        "structs",
+        "panels"
+    ],
+    "structure": {
+        "globals": {
+            "name": "Globals",
+            "pageType": "function",
+            "subcategories": {
+                "AW.UI:DrawArc": {
+                    "name": "AW.UI:DrawArc",
+                    "parameters": [
+                        {
+                            "type": "number",
+                            "name": "x",
+                            "description": "xPos"
+                        },
+                        {
+                            "type": "number",
+                            "name": "y",
+                            "description": "yPos"
+                        },
+                        {
+                            "type": "number",
+                            "name": "p",
+                            "description": "InitialPoint"
+                        },
+                        {
+                            "type": "number",
+                            "name": "rad",
+                            "description": "Radius"
+                        },
+                        {
+                            "type": "number",
+                            "name": "seg",
+                            "description": "Segments (points)"
+                        }
+                    ],
+                    "returns": [
+                        {
+                            "type": "color",
+                            "description": "color Color"
+                        }
+                    ],
+                    "realm": "client",
+                    "item": "function"
+                },
+                "AW.UI:CalculateArc": {
+                    "name": "AW.UI:CalculateArc",
+                    "parameters": [
+                        {
+                            "type": "number",
+                            "name": "x",
+                            "description": "xPos"
+                        },
+                        {
+                            "type": "number",
+                            "name": "y",
+                            "description": "yPos"
+                        },
+                        {
+                            "type": "number",
+                            "name": "p",
+                            "description": "InitialPoint"
+                        },
+                        {
+                            "type": "number",
+                            "name": "rad",
+                            "description": "Radius"
+                        },
+                        {
+                            "type": "number",
+                            "name": "seg",
+                            "description": "Segments (points)"
+                        }
+                    ],
+                    "returns": [
+                        {
+                            "type": "color",
+                            "description": "color Color"
+                        },
+                        {
+                            "type": "table",
+                            "description": "circle"
+                        }
+                    ],
+                    "realm": "client",
+                    "item": "function"
+                },
+                "AW.UI:DrawCachedArc": {
+                    "name": "AW.UI:DrawCachedArc",
+                    "parameters": [
+                        {
+                            "type": "string",
+                            "name": "Variable",
+                            "description": "with the circle table"
+                        }
+                    ],
+                    "returns": [
+                        {
+                            "type": "color",
+                            "description": "color Color"
+                        }
+                    ],
+                    "realm": "client",
+                    "item": "function"
+                },
+                "XLIB.tonumber_s": {
+                    "name": "XLIB.tonumber_s",
+                    "description": "@treturn[1] number The converted number, if the conversion is safe\n\n@treturn[2] nil Nil if the conversion would lose integer precision",
+                    "parameters": [
+                        {
+                            "type": "string",
+                            "name": "str",
+                            "description": "String to be converted to number"
+                        }
+                    ],
+                    "item": "function"
+                },
+                "XLIB.FreezeProp": {
+                    "name": "XLIB.FreezeProp",
+                    "description": "@tparam[opt=false] bool no_children Set to true to *prevent* recursively freezing child entities",
+                    "parameters": [
+                        {
+                            "type": "Entity",
+                            "name": "ent",
+                            "description": "Entity to freeze"
+                        }
+                    ],
+                    "item": "function"
+                },
+                "XLIB.ColorToInt": {
+                    "name": "XLIB.ColorToInt",
+                    "parameters": [
+                        {
+                            "type": "Color",
+                            "name": "color",
+                            "description": "Color to convert to an int"
+                        }
+                    ],
+                    "returns": [
+                        {
+                            "type": "number",
+                            "description": "The color object represented as an integer"
+                        }
+                    ],
+                    "item": "function"
+                },
+                "XLIB.IntToColor": {
+                    "name": "XLIB.IntToColor",
+                    "parameters": [
+                        {
+                            "type": "number",
+                            "name": "int",
+                            "description": "Integer to convert to a Color object"
+                        }
+                    ],
+                    "returns": [
+                        {
+                            "type": "Color",
+                            "description": "Color"
+                        }
+                    ],
+                    "item": "function"
+                },
+                "XLIB.SafeColor": {
+                    "name": "XLIB.SafeColor",
+                    "parameters": [
+                        {
+                            "type": "Color",
+                            "name": "color",
+                            "description": "The color object to clamp"
+                        },
+                        {
+                            "type": "bool[opt=false]",
+                            "name": "noalpha",
+                            "description": "Forces the alpha channel to 255 if true"
+                        }
+                    ],
+                    "returns": [
+                        {
+                            "type": "Color",
+                            "description": "The color object passed as the first argument"
+                        }
+                    ],
+                    "warns": [
+                        "This modifies the color object passed to it rather than creating a copy!"
+                    ],
+                    "item": "function"
+                },
+                "XLIB.SafeColorNoAlpha": {
+                    "name": "XLIB.SafeColorNoAlpha",
+                    "parameters": [
+                        {
+                            "type": "Color",
+                            "name": "color",
+                            "description": "The color object to clamp"
+                        }
+                    ],
+                    "warns": [
+                        "This modifies the color object passed to it rather than creating a copy!"
+                    ],
+                    "item": "function"
+                },
+                "DevCommand": {
+                    "name": "DevCommand",
+                    "parameters": [
+                        {
+                            "type": "string",
+                            "name": "cmd",
+                            "description": "Command name ( what you type in console )"
+                        },
+                        {
+                            "type": "functiontion",
+                            "name": "fn",
+                            "description": "that command will run"
+                        },
+                        {
+                            "type": "boolean",
+                            "name": "realm",
+                            "description": "( CLIENT or SERVER ), this defaults to SERVER even on client, so if you want your command to be clientside, you must use CLIENT"
+                        },
+                        {
+                            "type": "string",
+                            "name": "desc",
+                            "description": "A description of what the command does, this is optional, but would be great to be filled."
+                        },
+                        {
+                            "type": "string",
+                            "name": "usage",
+                            "description": "Usage instructions, if needed."
+                        }
+                    ],
+                    "item": "function"
+                },
+                "AW.GUI:OpenCharCreation": {
+                    "name": "AW.GUI:OpenCharCreation",
+                    "parameters": [
+                        {
+                            "type": "pnlBody",
+                            "name": "Parent",
+                            "description": "panel"
+                        }
+                    ],
+                    "realm": "client",
+                    "internal": true,
+                    "item": "function"
+                },
+                "Sender:Send": {
+                    "name": "Sender:Send",
+                    "parameters": [
+                        {
+                            "type": "player|table|Recipientfilter|nil",
+                            "name": "pPlayer",
+                            "description": "Player we want to send the message to."
+                        }
+                    ],
+                    "returns": [
+                        {
+                            "type": "table",
+                            "description": "PacketSender PacketSender Metatable"
+                        }
+                    ],
+                    "item": "function"
+                },
+                "AW.NET.SIMPLE.Sender": {
+                    "name": "AW.NET.SIMPLE.Sender",
+                    "parameters": [
+                        {
+                            "type": "string",
+                            "name": "sNetName",
+                            "description": "The name/id of the Net receiver."
+                        }
+                    ],
+                    "returns": [
+                        {
+                            "type": "PacketSender",
+                            "description": "Metatable"
+                        }
+                    ],
+                    "item": "function"
+                },
+                "AW.NET.SIMPLE.Receiver": {
+                    "name": "AW.NET.SIMPLE.Receiver",
+                    "parameters": [
+                        {
+                            "type": "string",
+                            "name": "sNetName",
+                            "description": "The name/id of the Net receiver."
+                        },
+                        {
+                            "type": "functiontion",
+                            "name": "fCallback",
+                            "description": "The callback that should be assigned to that Net receiver."
+                        },
+                        {
+                            "type": "boolean",
+                            "name": "bIgnoreInvalid",
+                            "description": "If true it will still run the Net receiver when the player was invalid when received."
+                        }
+                    ],
+                    "item": "function"
+                },
+                "AW.SQL:CreateCharacter(sName, sLastName, iSex, sModel, iSkin).": {
+                    "name": "AW.SQL:CreateCharacter(sName, sLastName, iSex, sModel, iSkin).",
+                    "parameters": [
+                        {
+                            "type": "string",
+                            "name": "sName",
+                            "description": "Character Name."
+                        },
+                        {
+                            "type": "string",
+                            "name": "sLastName",
+                            "description": "Character Last Name."
+                        },
+                        {
+                            "type": "boolean",
+                            "name": "iSex",
+                            "description": "Character sex (false = male, true = female) -- Can also be 0 or 1."
+                        },
+                        {
+                            "type": "string",
+                            "name": "sModel",
+                            "description": "Character Model."
+                        },
+                        {
+                            "type": "number",
+                            "name": "iSkin",
+                            "description": "Character."
+                        }
+                    ],
+                    "realm": "server",
+                    "internal": true,
+                    "item": "function"
+                },
+                "AW.SQL:SelectCharacter(nId, fCallback).": {
+                    "name": "AW.SQL:SelectCharacter(nId, fCallback).",
+                    "parameters": [
+                        {
+                            "type": "number",
+                            "name": "nID",
+                            "description": "Character ID."
+                        },
+                        {
+                            "type": "function",
+                            "name": "fCallback",
+                            "description": "Callback function with character table as only argument."
+                        }
+                    ],
+                    "realm": "server",
+                    "item": "function"
+                },
+                "AW.SQL:Initialize().": {
+                    "name": "AW.SQL:Initialize().",
+                    "realm": "server",
+                    "item": "function"
+                }
+            },
+            "item": "category"
+        },
+        "classes": {
+            "name": "Classes",
+            "pageType": "function",
+            "subcategories": {
+                "PLAYER": {
+                    "name": "PLAYER",
+                    "pageType": "function",
+                    "subcategories": {
+                        "PLAYER:GetMoney": {
+                            "name": "PLAYER:GetMoney",
+                            "returns": [
+                                {
+                                    "type": "number",
+                                    "description": "Player wallet."
+                                }
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "PLAYER:AddMoney": {
+                            "name": "PLAYER:AddMoney",
+                            "parameters": [
+                                {
+                                    "type": "number",
+                                    "name": "nAmount",
+                                    "description": "Amount to be added"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "bool",
+                                    "description": "Success"
+                                }
+                            ],
+                            "realm": "server",
+                            "item": "function"
+                        },
+                        "PLAYER:TakeMoney": {
+                            "name": "PLAYER:TakeMoney",
+                            "parameters": [
+                                {
+                                    "type": "number",
+                                    "name": "nAmount",
+                                    "description": "Amount to be removed"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "bool",
+                                    "description": "Success"
+                                }
+                            ],
+                            "realm": "server",
+                            "item": "function"
+                        },
+                        "PLAYER:CanAfford": {
+                            "name": "PLAYER:CanAfford",
+                            "parameters": [
+                                {
+                                    "type": "number",
+                                    "name": "nAmount",
+                                    "description": "Price to check"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "bool",
+                                    "description": "CanAfford"
+                                }
+                            ],
+                            "realm": "server",
+                            "item": "function"
+                        },
+                        "PLAYER:GetBankMoney": {
+                            "name": "PLAYER:GetBankMoney",
+                            "parameters": [
+                                {
+                                    "type": "number",
+                                    "name": "nAmount",
+                                    "description": "Price to check"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "bool",
+                                    "description": "CanAfford"
+                                }
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "PLAYER:AddBankMoney": {
+                            "name": "PLAYER:AddBankMoney",
+                            "parameters": [
+                                {
+                                    "type": "number",
+                                    "name": "nAmount",
+                                    "description": "Amount to add"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "bool",
+                                    "description": "Success"
+                                }
+                            ],
+                            "realm": "server",
+                            "item": "function"
+                        },
+                        "PLAYER:TakeBankMoney": {
+                            "name": "PLAYER:TakeBankMoney",
+                            "parameters": [
+                                {
+                                    "type": "number",
+                                    "name": "nAmount",
+                                    "description": "Amount to remove"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "bool",
+                                    "description": "Success"
+                                }
+                            ],
+                            "realm": "server",
+                            "item": "function"
+                        },
+                        "PLAYER:GetJob": {
+                            "name": "PLAYER:GetJob",
+                            "returns": [
+                                {
+                                    "type": "number",
+                                    "description": "Job ID"
+                                }
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "PLAYER:IsEmployed": {
+                            "name": "PLAYER:IsEmployed",
+                            "returns": [
+                                {
+                                    "type": "bool",
+                                    "description": "Employed"
+                                }
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "PLAYER:GetSalary": {
+                            "name": "PLAYER:GetSalary",
+                            "returns": [
+                                {
+                                    "type": "number",
+                                    "description": "salary"
+                                }
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "PLAYER:CanBecome": {
+                            "name": "PLAYER:CanBecome",
+                            "description": "Returns true if the player is able to join said job.",
+                            "parameters": [
+                                {
+                                    "type": "number",
+                                    "name": "nUID",
+                                    "description": "Job ID"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "bool",
+                                    "description": "Can join"
+                                }
+                            ],
+                            "realm": "server",
+                            "item": "function"
+                        },
+                        "PLAYER:Employ": {
+                            "name": "PLAYER:Employ",
+                            "description": "Makes player join the job",
+                            "parameters": [
+                                {
+                                    "type": "number",
+                                    "name": "nUID",
+                                    "description": "JobID"
+                                },
+                                {
+                                    "type": "boolean",
+                                    "name": "bForced",
+                                    "description": "If set to true, job requirements are ignored."
+                                }
+                            ],
+                            "realm": "server",
+                            "item": "function"
+                        }
+                    },
+                    "item": "category",
+                    "description": "Registers, assings and controls job aspects of the gamemode."
+                }
+            },
+            "item": "category"
+        },
+        "modules": {
+            "name": "Modules",
+            "pageType": "function",
+            "subcategories": {
+                "GAMEMODE|AW": {
+                    "name": "GAMEMODE|AW",
+                    "pageType": "function",
+                    "subcategories": {
+                        "AW.activateDeveloperHook": {
+                            "name": "AW.activateDeveloperHook",
+                            "description": "Calls a hook after checking if developer hooks are enabled",
+                            "parameters": [
+                                {
+                                    "type": "string",
+                                    "name": "name",
+                                    "description": "Hook name"
+                                },
+                                {
+                                    "type": "table",
+                                    "name": "args",
+                                    "description": "Table of arguments"
+                                }
+                            ],
+                            "realm": "shared",
+                            "internal": true,
+                            "item": "function"
+                        },
+                        "AW.isEmpty": {
+                            "name": "AW.isEmpty",
+                            "description": "Checks if a variable is nil",
+                            "parameters": [
+                                {
+                                    "type": "any",
+                                    "name": "s",
+                                    "description": "Any variable"
+                                }
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "AW.isEmptyUnknown": {
+                            "name": "AW.isEmptyUnknown",
+                            "description": "Returns 'Unknown' if the variable is nil or an empty string",
+                            "parameters": [
+                                {
+                                    "type": "any",
+                                    "name": "s",
+                                    "description": "Any variable"
+                                }
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "AW.moduleIntegrity": {
+                            "name": "AW.moduleIntegrity",
+                            "description": "Checks if provided module data is valid",
+                            "parameters": [
+                                {
+                                    "type": "table",
+                                    "name": "Module",
+                                    "description": "Table"
+                                }
+                            ],
+                            "realm": "shared",
+                            "internal": true,
+                            "item": "function"
+                        },
+                        "AW.getSystemOS": {
+                            "name": "AW.getSystemOS",
+                            "description": "Returns the Operating system String or \"Unknown\"",
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "AW.mean": {
+                            "name": "AW.mean",
+                            "description": "Returns the mean/average number in a table",
+                            "parameters": [
+                                {
+                                    "type": "table",
+                                    "name": "t",
+                                    "description": "Table with values"
+                                }
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "AW.formatBatteryPower": {
+                            "name": "AW.formatBatteryPower",
+                            "description": "Returns user formatted battery power, returns \"Plug\" if not on battery or plugged in",
+                            "realm": "client",
+                            "item": "function"
+                        },
+                        "AW.isModuleLoaded": {
+                            "name": "AW.isModuleLoaded",
+                            "description": "Returns if the provided module name/data is loaded",
+                            "parameters": [
+                                {
+                                    "type": "table",
+                                    "name": "Module",
+                                    "description": "table"
+                                }
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "AW:LogTrace": {
+                            "name": "AW:LogTrace",
+                            "description": "Logs trace message to console (White)\nThe logged message will be prefixed by the module (if called from inside a module)\nThe decorator color changes if calling from the same module multiple times\nIf the first argument is a table, the table will be printed while everything else becomes title for said table.",
+                            "parameters": [
+                                {
+                                    "type": "any",
+                                    "name": "sLog",
+                                    "description": "String or Table to be logged"
+                                },
+                                {
+                                    "type": "any",
+                                    "name": "...",
+                                    "description": "One or multiple arguments"
+                                }
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "AW:LogWarn": {
+                            "name": "AW:LogWarn",
+                            "description": "Logs warn message to console (yellow)\nThe logged message will be prefixed by the module (if called from inside a module)\nThe decorator color changes if calling from the same module multiple times\nIf the first argument is a table, the table will be printed while everything else becomes title for said table.",
+                            "parameters": [
+                                {
+                                    "type": "any",
+                                    "name": "sLog",
+                                    "description": "String or Table to be logged"
+                                },
+                                {
+                                    "type": "any",
+                                    "name": "...",
+                                    "description": "One or multiple arguments"
+                                }
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "AW:LogError": {
+                            "name": "AW:LogError",
+                            "description": "Logs error message to console (red)\nThe logged message will be prefixed by the module (if called from inside a module)\nThe decorator color changes if calling from the same module multiple times\nIf the first argument is a table, the table will be printed while everything else becomes title for said table.",
+                            "parameters": [
+                                {
+                                    "type": "any",
+                                    "name": "sLog",
+                                    "description": "String or Table to be logged"
+                                },
+                                {
+                                    "type": "any",
+                                    "name": "...",
+                                    "description": "One or multiple arguments"
+                                }
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "AW:LogSuccess": {
+                            "name": "AW:LogSuccess",
+                            "description": "Logs success message to console (green)\nThe logged message will be prefixed by the module (if called from inside a module)\nThe decorator color changes if calling from the same module multiple times\nIf the first argument is a table, the table will be printed while everything else becomes title for said table.",
+                            "parameters": [
+                                {
+                                    "type": "any",
+                                    "name": "sLog",
+                                    "description": "String or Table to be logged"
+                                },
+                                {
+                                    "type": "any",
+                                    "name": "...",
+                                    "description": "One or multiple arguments"
+                                }
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "AW:RecursiveInclusion": {
+                            "name": "AW:RecursiveInclusion",
+                            "parameters": [
+                                {
+                                    "type": "string",
+                                    "name": "sDirectory",
+                                    "description": "lua relative path to folder."
+                                },
+                                {
+                                    "type": "boolean",
+                                    "name": "bGamemode",
+                                    "description": "if true, directory will be relative to gamemode."
+                                }
+                            ],
+                            "examples": [
+                                "-- Loading the gamemode library folder\n```lua\n\tlocal tTypes = {\n\t  [\"cl_\"] = \"client\",\n   [\"sv_\"] = \"server\",\n   [\"sh_\"] = \"shared\"\n }\n```"
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "AW:IncludeDir": {
+                            "name": "AW:IncludeDir",
+                            "description": "Searchs and loads files from specific folder no matter which prefix.",
+                            "parameters": [
+                                {
+                                    "type": "string",
+                                    "name": "sDirectory",
+                                    "description": "lua relative path to folder."
+                                },
+                                {
+                                    "type": "string",
+                                    "name": "sRealm",
+                                    "description": "realm to use."
+                                },
+                                {
+                                    "type": "boolean",
+                                    "name": "bGamemode",
+                                    "description": "if true, the function will try to append darkrp/ (or whatever the gamemode is called) before the given path."
+                                }
+                            ],
+                            "examples": [
+                                "```lua\n-- Loading npcs from their folder as shared files.\nAW:IncludeDir(\"darkrp/gamemode/npcs\", \"shared\", false)\n```"
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        }
+                    },
+                    "item": "category",
+                    "description": "Gamemode core functions, used across all modules.\n\nThis is the gamemode table, every module is actually also loaded to the gamemode table.\n\nThe difference is that the functions listed here are outside the modules folder, and are part of the gamemode itself.\nYou can just use AW: instead of GM: or GAMEMODE:"
+                },
+                "AW.JOBS": {
+                    "name": "AW.JOBS",
+                    "pageType": "function",
+                    "subcategories": {
+                        "AW.JOBS:Countemployees": {
+                            "name": "AW.JOBS:Countemployees",
+                            "description": "Returns how many players are employed under specified job",
+                            "parameters": [
+                                {
+                                    "type": "number",
+                                    "name": "JobID",
+                                    "description": "Job ID"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "number",
+                                    "description": "Amount of people in the job"
+                                }
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "AW.JOBS:GetTable": {
+                            "name": "AW.JOBS:GetTable",
+                            "description": "Returns the table of specified job",
+                            "parameters": [
+                                {
+                                    "type": "number",
+                                    "name": "nUID",
+                                    "description": "Job ID"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "table",
+                                    "description": "Job Table"
+                                }
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        }
+                    },
+                    "item": "category"
+                },
+                "AW.NET": {
+                    "name": "AW.NET",
+                    "pageType": "function",
+                    "subcategories": {
+                        "AW.NET:AddProtocol": {
+                            "name": "AW.NET:AddProtocol",
+                            "description": "Creates a new protocol to be used withing net module.\nEvery protocol must be created on both server and client (or in sh files)\nProtocols are like channels, you can have net messages with generic names like \"send\" without having conflicts as long they are not in the same channel.",
+                            "parameters": [
+                                {
+                                    "type": "string",
+                                    "name": "sProtocol",
+                                    "description": "Protocol name"
+                                },
+                                {
+                                    "type": "number",
+                                    "name": "nNetID",
+                                    "description": "UNIQUE NUMBER for the protocol, any number, as long it's not alredy used by another protocol."
+                                }
+                            ],
+                            "examples": [
+                                "```lua \nAW.NET:AddProtocol(\"player\", 1)\n```"
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "AW.NET:IsProtocol": {
+                            "name": "AW.NET:IsProtocol",
+                            "description": "Verifies if a protocol Exists",
+                            "parameters": [
+                                {
+                                    "type": "string",
+                                    "name": "sProtocol",
+                                    "description": "Protocol name to search for"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "bool",
+                                    "description": "True if protocol exists"
+                                }
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "AW.NET:RegisterEventHandle": {
+                            "name": "AW.NET:RegisterEventHandle",
+                            "description": "Registers an event handler.\nThink of it like using net.Receive().",
+                            "parameters": [
+                                {
+                                    "type": "string",
+                                    "name": "sProtocol",
+                                    "description": "The protocol name (must be registered with AW.NET:AddProtocol)."
+                                },
+                                {
+                                    "type": "string",
+                                    "name": "sMessageName",
+                                    "description": "The name of the message to be sent through the protocol."
+                                },
+                                {
+                                    "type": "function",
+                                    "name": "fHandle",
+                                    "description": "Netstring callback function"
+                                },
+                                {
+                                    "type": "table",
+                                    "name": "tHandleMeta",
+                                    "description": "Meta override table, this is mostly never used."
+                                }
+                            ],
+                            "examples": [
+                                "-- Receiving events from registered protocols\n```lua\nAW.NET:RegisterEventHandle(\"player\", \"sendPrivateMessage\", function(intMsgLen, pPlayer)\n     local sNotificationMessage = net.ReadString()\n     pPlayer:PrivateMessage(sNotificationMessage, pPlayer+)\nend)\n```"
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "fHandle": {
+                            "name": "fHandle",
+                            "description": "Callback function for EventHandler\nThis is actually the same as the normal net library callback.",
+                            "parameters": [
+                                {
+                                    "type": "number",
+                                    "name": "intMsgLen",
+                                    "description": "Net message lenght"
+                                },
+                                {
+                                    "type": "player",
+                                    "name": "player",
+                                    "description": "who called the netstring"
+                                }
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "AW.NET:NewEvent": {
+                            "name": "AW.NET:NewEvent",
+                            "description": "Sends a new network event to be received with AW.NET:RegisterEventHandle\nThis works motly like the normal net.Start() function.",
+                            "parameters": [
+                                {
+                                    "type": "string",
+                                    "name": "sProtocol",
+                                    "description": "The protocol name (must be registered with AW.NET:AddProtocol)."
+                                },
+                                {
+                                    "type": "string",
+                                    "name": "sMessageName",
+                                    "description": "the message name."
+                                }
+                            ],
+                            "examples": [
+                                "```lua\n-- Sending a private message to player from the client\nfunction SendPrivaMessage(pTarget)\n   AW.NET:NewEvent(\"player\", \"sendPrivateMessage\")\n     net.WriteString(\"That's my private message :)\")\n     net.WriteEntity(pTarget)\n   AW.NET:FireEvent() -- This is the equivalent of net.Send() and net.SendToServer(), therefore should can use a player or table of players as argument when sending from server\n\n   -- AW.NET:BroadcastEvent() can also be used if you plan to broadcast the message.\nend\n```"
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        }
+                    },
+                    "item": "category"
+                },
+                "Player": {
+                    "name": "Player",
+                    "pageType": "function",
+                    "subcategories": {
+                        "AW.PLAYER:DefineGameVar": {
+                            "name": "AW.PLAYER:DefineGameVar",
+                            "description": "Defines a game var.\nGame vars must be defined both in server and client.  \nServer side needs the player as first argument while the client doesn't.\n Server also accepts one extra argument for network option",
+                            "parameters": [
+                                {
+                                    "type": "string",
+                                    "name": "sVar",
+                                    "description": "Game var name."
+                                },
+                                {
+                                    "type": "any",
+                                    "name": "xValue",
+                                    "description": "Game var default/fallback value."
+                                },
+                                {
+                                    "type": "string",
+                                    "name": "sType",
+                                    "description": "Game var net type ( accepts all types from net library )."
+                                }
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "AW.PLAYER:GetGameVarType": {
+                            "name": "AW.PLAYER:GetGameVarType",
+                            "description": "Get's a game var type.\nGame vars must be define both on server and client before being available.\nServer side needs the player as first argument while client doesn't.",
+                            "parameters": [
+                                {
+                                    "type": "string",
+                                    "name": "sVar",
+                                    "description": "Game var name.r"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "string",
+                                    "description": "GameVar type."
+                                }
+                            ],
+                            "realm": "client",
+                            "item": "function"
+                        },
+                        "AW.PLAYER:GetGameVar": {
+                            "name": "AW.PLAYER:GetGameVar",
+                            "description": "Get's a game var value.\n Game vars must be define both on server and client before being available.\n Server side needs the player as first argument while client doesn't.",
+                            "parameters": [
+                                {
+                                    "type": "any",
+                                    "name": "xFallback",
+                                    "description": "the fallback value"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "any",
+                                    "description": "Value from the Gamevar"
+                                }
+                            ],
+                            "realm": "client",
+                            "item": "function"
+                        },
+                        "AW.PLAYER:SetGameVar": {
+                            "name": "AW.PLAYER:SetGameVar",
+                            "description": "Set's a game var value.\n Game vars must be define both on server and client before being available.\n Server side needs the player as first argument while client doesn't.\n Server also accepts one extra argument for network option.",
+                            "parameters": [
+                                {
+                                    "type": "string",
+                                    "name": "sVar",
+                                    "description": "Gamevar name."
+                                },
+                                {
+                                    "type": "any",
+                                    "name": "xValue",
+                                    "description": "Gamevar new value"
+                                }
+                            ],
+                            "realm": "client",
+                            "item": "function"
+                        },
+                        "AW.PLAYER:DefineSharedGameVar": {
+                            "name": "AW.PLAYER:DefineSharedGameVar",
+                            "description": "Shared game vars are shared between all players on the server.\nIt's broadcasted only when changed\n Server side needs the player as first argument while client doesn't.\n Server also accepts one extra argument for network option.",
+                            "parameters": [
+                                {
+                                    "type": "string",
+                                    "name": "sVar",
+                                    "description": "Gamevar name."
+                                },
+                                {
+                                    "type": "any",
+                                    "name": "xValue",
+                                    "description": "Gamevar new value"
+                                }
+                            ],
+                            "realm": "client",
+                            "item": "function"
+                        },
+                        "AW.PLAYER:GetSharedGameVarType": {
+                            "name": "AW.PLAYER:GetSharedGameVarType",
+                            "description": "Same as AW.PLAYER:GetGameVarType.\n Returns the gamevar network type.\n Server side needs the player as first argument while client doesn't.",
+                            "parameters": [
+                                {
+                                    "type": "string",
+                                    "name": "sVar",
+                                    "description": "Gamevar name."
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "any",
+                                    "description": "Value from the Gamevar"
+                                }
+                            ],
+                            "realm": "client",
+                            "item": "function"
+                        },
+                        "AW.PLAYER:GetSharedGameVar": {
+                            "name": "AW.PLAYER:GetSharedGameVar",
+                            "description": "Get's a shared game var value.\n Game vars must be define both on server and client before being available.\n Server side needs the player as first argument while client doesn't.",
+                            "parameters": [
+                                {
+                                    "type": "any",
+                                    "name": "xFallback",
+                                    "description": "the fallback value"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "any",
+                                    "description": "Value from the Gamevar"
+                                }
+                            ],
+                            "realm": "client",
+                            "item": "function"
+                        },
+                        "AW.PLAYER:SetSharedGameVar": {
+                            "name": "AW.PLAYER:SetSharedGameVar",
+                            "description": "Set's a shared game var value.\n Game vars must be define both on server and client before being available.\n Server side needs the player as first argument while client doesn't.\n Server also accepts one extra argument for network option.",
+                            "parameters": [
+                                {
+                                    "type": "string",
+                                    "name": "sVar",
+                                    "description": "Gamevar name."
+                                },
+                                {
+                                    "type": "any",
+                                    "name": "xValue",
+                                    "description": "Gamevar new value"
+                                }
+                            ],
+                            "realm": "client",
+                            "item": "function"
+                        },
+                        "AW.PLAYER:UpdatePlayerMoveSpeed": {
+                            "name": "AW.PLAYER:UpdatePlayerMoveSpeed",
+                            "parameters": [
+                                {
+                                    "type": "player",
+                                    "name": "pPlayer",
+                                    "description": "Player which we should update"
+                                }
+                            ],
+                            "realm": "server",
+                            "internal": true,
+                            "item": "function"
+                        },
+                        "PLAYER:PerformInteraction": {
+                            "name": "PLAYER:PerformInteraction",
+                            "parameters": [
+                                {
+                                    "type": "number",
+                                    "name": "nTime",
+                                    "description": "time How much time in seconds this player has to hold use for"
+                                },
+                                {
+                                    "type": "entity",
+                                    "name": "eEnt",
+                                    "description": "Entity that this player must be looking at"
+                                },
+                                {
+                                    "type": "func",
+                                    "name": "fCallback",
+                                    "description": "Function to run when the timer completes. It will be ran right away if `time` is `0`. Returning `false` in"
+                                }
+                            ],
+                            "realm": "server",
+                            "item": "function"
+                        }
+                    },
+                    "item": "category"
+                }
+            },
+            "item": "category"
+        },
+        "libraries": {
+            "name": "Libraries",
+            "pageType": "function",
+            "subcategories": {
+                "AW.CAM": {
+                    "name": "AW.CAM",
+                    "pageType": "function",
+                    "subcategories": {
+                        "AW.CAM:ClearCamera stops any camera animation, without advice.": {
+                            "name": "AW.CAM:ClearCamera stops any camera animation, without advice.",
+                            "parameters": [
+                                {
+                                    "type": "boolean",
+                                    "name": "bSamePath",
+                                    "description": "Wether should the camera return the same path before beeing removed."
+                                },
+                                {
+                                    "type": "number",
+                                    "name": "iTime",
+                                    "description": "Total time to return"
+                                }
+                            ],
+                            "realm": "client",
+                            "item": "function"
+                        },
+                        "AW.CAM:CalcView": {
+                            "name": "AW.CAM:CalcView",
+                            "description": "Changes the lib CalcView table",
+                            "parameters": [
+                                {
+                                    "type": "player",
+                                    "name": "pPlayer",
+                                    "description": "LocalPlayer"
+                                },
+                                {
+                                    "type": "vector",
+                                    "name": "vecOrigin",
+                                    "description": "Origin Vectors"
+                                },
+                                {
+                                    "type": "angle",
+                                    "name": "angAngs",
+                                    "description": "Origin angles"
+                                },
+                                {
+                                    "type": "number",
+                                    "name": "intFOV",
+                                    "description": "FOV"
+                                }
+                            ],
+                            "realm": "client",
+                            "internal": true,
+                            "item": "function"
+                        },
+                        "AW.CAM:JumpFromTo": {
+                            "name": "AW.CAM:JumpFromTo",
+                            "description": "Make the camera animate from one position to another in the time given.",
+                            "parameters": [
+                                {
+                                    "type": "vector",
+                                    "name": "vFrom",
+                                    "description": "Initial position (localplayer position mostly)"
+                                },
+                                {
+                                    "type": "angle",
+                                    "name": "aFrom",
+                                    "description": "Angle from (same thing)"
+                                },
+                                {
+                                    "type": "number",
+                                    "name": "intFovFrom",
+                                    "description": "FOV, usually needed when dealing with panels + camera"
+                                },
+                                {
+                                    "type": "vector",
+                                    "name": "vTo",
+                                    "description": "Final position"
+                                },
+                                {
+                                    "type": "angle",
+                                    "name": "aTo",
+                                    "description": "Final angle"
+                                },
+                                {
+                                    "type": "number",
+                                    "name": "intFOVTo",
+                                    "description": "Final fov"
+                                },
+                                {
+                                    "type": "number",
+                                    "name": "intLen",
+                                    "description": "Duration of the camera travel"
+                                },
+                                {
+                                    "type": "function",
+                                    "name": "funcCallback",
+                                    "description": "Function callback after the camera is done travelling."
+                                },
+                                {
+                                    "type": "boolean",
+                                    "name": "bViewModel",
+                                    "description": "If true, the player will be able to see himself"
+                                },
+                                {
+                                    "type": "boolean",
+                                    "name": "bJiggle",
+                                    "description": "if true, the camera will have a jiggle effect."
+                                },
+                                {
+                                    "type": "number",
+                                    "name": "xJiggleMax",
+                                    "description": "Max ammount of jiggleness."
+                                }
+                            ],
+                            "realm": "client",
+                            "item": "function"
+                        },
+                        "AW.CAM:JumpFromToFollow": {
+                            "name": "AW.CAM:JumpFromToFollow",
+                            "description": "Make the camera animate from one position to another in the time given.\nAfter that, keeps following the specified entity.",
+                            "parameters": [
+                                {
+                                    "type": "entity",
+                                    "name": "entFollow",
+                                    "description": "Entity to be followed"
+                                },
+                                {
+                                    "type": "vector",
+                                    "name": "vFrom",
+                                    "description": "Initial position (localplayer position mostly)"
+                                },
+                                {
+                                    "type": "angle",
+                                    "name": "aFrom",
+                                    "description": "Angle from (same thing)"
+                                },
+                                {
+                                    "type": "number",
+                                    "name": "intFovFrom",
+                                    "description": "FOV, usually needed when dealing with panels + camera"
+                                },
+                                {
+                                    "type": "vector",
+                                    "name": "vTo",
+                                    "description": "Final position"
+                                },
+                                {
+                                    "type": "angle",
+                                    "name": "aTo",
+                                    "description": "Final angle"
+                                },
+                                {
+                                    "type": "number",
+                                    "name": "intFOVTo",
+                                    "description": "Final fov"
+                                },
+                                {
+                                    "type": "number",
+                                    "name": "intLen",
+                                    "description": "Duration of the camera travel"
+                                },
+                                {
+                                    "type": "function",
+                                    "name": "funcCallback",
+                                    "description": "Function callback after the camera is done travelling."
+                                },
+                                {
+                                    "type": "boolean",
+                                    "name": "bViewModel",
+                                    "description": "If true, the player will be able to see himself"
+                                },
+                                {
+                                    "type": "boolean",
+                                    "name": "bJiggle",
+                                    "description": "If true, the camera will jiggle, simulating a handheld camera."
+                                }
+                            ],
+                            "realm": "client",
+                            "item": "function"
+                        }
+                    },
+                    "item": "category",
+                    "description": "Provides interface for camera lerp and animation."
+                },
+                "AW.Promises": {
+                    "name": "AW.Promises",
+                    "pageType": "function",
+                    "subcategories": {
+                        "AW.Promise.new": {
+                            "name": "AW.Promise.new",
+                            "description": "Returns a new promise object.",
+                            "returns": [
+                                {
+                                    "type": "Promise",
+                                    "description": "New promise"
+                                }
+                            ],
+                            "examples": [
+                                "```lua\nlocal deferred = require('deferred')\n\n--\n-- Converting callback-based API into promise-based is very straightforward:\n--\n-- 1) Create promise object\n-- 2) Start your asynchronous action\n-- 3) Resolve promise object whenever action is finished (only first resolution\n--    is accepted, others are ignored)\n-- 4) Reject promise object whenever action is failed (only first rejection is\n--    accepted, others are ignored)\n-- 5) Return promise object letting calling side to add a chain of callbacks to\n--    your asynchronous function\n\nfunction read(f)\n  local d = deferred.new()\n  readasync(f, function(contents, err)\n      if err == nil then\n        d:resolve(contents)\n      else\n        d:reject(err)\n      end\n  end)\n  return d\nend\n\n-- You can now use read() like this:\nread('file.txt'):next(function(s)\n    print('File.txt contents: ', s)\n  end, function(err)\n    print('Error', err)\nend)\n```"
+                            ],
+                            "item": "function"
+                        },
+                        "AW.Promises.all": {
+                            "name": "AW.Promises.all",
+                            "parameters": [
+                                {
+                                    "type": "PromiseTable",
+                                    "name": "Arguments",
+                                    "description": "List of promise"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "Promise",
+                                    "description": "New promise"
+                                }
+                            ],
+                            "examples": [
+                                "```lua\ndeferred.all({\n    http.get('http://example.com/first'),\n    http.get('http://example.com/second'),\n    http.get('http://example.com/third'),\n  }):next(function(results)\n      -- handle results here (all requests are finished and there has been\n      -- no errors)\n    end, function(results)\n      -- handle errors here (all requests are finished and there has been\n      -- at least one error)\n  end)\n```"
+                            ],
+                            "item": "function"
+                        },
+                        "AW.Promises.map": {
+                            "name": "AW.Promises.map",
+                            "description": "Returns a new promise object that is resolved with the values of sequential application of function fn to each element in the list. fn is expected to return promise object.",
+                            "parameters": [
+                                {
+                                    "type": "PromiseTable",
+                                    "name": "args",
+                                    "description": "list of promise"
+                                },
+                                {
+                                    "type": "Promise",
+                                    "name": "fn",
+                                    "description": "Last promise used to resolve the list of promise"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "Promise",
+                                    "description": "A new promise"
+                                }
+                            ],
+                            "examples": [
+                                "```lua\nlocal items = {'a.txt', 'b.txt', 'c.txt'}\n-- Read 3 files, one by one\ndeferred.map(items, read):next(function(files)\n    -- here files is an array of file contents for each of the files\n  end, function(err)\n    -- handle reading error\nend)\n```"
+                            ],
+                            "item": "function"
+                        },
+                        "AW.Promises.first": {
+                            "name": "AW.Promises.first",
+                            "description": "Returns a new promise object that is resolved as soon as the first of the promises gets resolved/rejected.",
+                            "parameters": [
+                                {
+                                    "type": "PromiseTable",
+                                    "name": "list",
+                                    "description": "of promise"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "Promise",
+                                    "description": "New promise"
+                                }
+                            ],
+                            "examples": [
+                                "```lua\n-- returns a promise that gets rejected after a certain timeout\nfunction timeout(sec)\n  local d = deferred.new()\n  settimeout(function()\n      d:reject('Timeout')\n    end, sec)\n  return d\nend\n\nAW.Promises.first({\n    read(somefile), -- resolves promise with contents, or rejects with error\n    timeout(5),\n  }):next(function(result)\n      -- file was read successfully...\n    end, function(err)\n      -- either timeout or I/O error...\n  end)\n```"
+                            ],
+                            "item": "function"
+                        },
+                        "AW.Promises.resolve": {
+                            "name": "AW.Promises.resolve",
+                            "description": "Resolve promise object with value.",
+                            "parameters": [
+                                {
+                                    "type": "value",
+                                    "name": "promise",
+                                    "description": "value"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "resolved",
+                                    "description": "future result"
+                                }
+                            ],
+                            "item": "function"
+                        },
+                        "AW.Promises.reject": {
+                            "name": "AW.Promises.reject",
+                            "description": "Reject promise object with value.",
+                            "parameters": [
+                                {
+                                    "type": "value",
+                                    "name": "promise",
+                                    "description": "value"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "rejected",
+                                    "description": "future result"
+                                }
+                            ],
+                            "item": "function"
+                        }
+                    },
+                    "item": "category",
+                    "description": "A+ promises in Lua."
+                }
+            },
+            "item": "category"
+        },
+        "hooks": {
+            "name": "Hooks",
+            "pageType": "function",
+            "subcategories": {},
+            "item": "category"
+        },
+        "panels": {
+            "name": "Panels",
+            "pageType": "function",
+            "subcategories": {},
+            "item": "category"
+        },
+        "enums": {
+            "name": "Enums",
+            "pageType": "table",
+            "subcategories": {
+                "Equipment types": {
+                    "name": "Equipment types",
+                    "fields": [
+                        {
+                            "type": "number",
+                            "key": "EQUIP_TYPE_WEAPON",
+                            "description": "Weapons and sweps."
+                        },
+                        {
+                            "type": "number",
+                            "key": "EQUIP_TYPE_OUTFIT",
+                            "description": "Outfit and accesories."
+                        },
+                        {
+                            "type": "number",
+                            "key": "EQUIP_TYPE_ITEM",
+                            "description": "Not a real item, used for granting stuff like phone."
+                        }
+                    ],
+                    "item": "table"
+                },
+                "Slot types": {
+                    "name": "Slot types",
+                    "fields": [
+                        {
+                            "type": "number",
+                            "key": "SLOT_TYPE_EQUIPMENT",
+                            "description": "Weapon slot."
+                        },
+                        {
+                            "type": "number",
+                            "key": "SLOT_TYPE_INVENTORY",
+                            "description": "Inventory slot."
+                        }
+                    ],
+                    "item": "table"
+                },
+                "Game window size": {
+                    "name": "Game window size",
+                    "fields": [
+                        {
+                            "type": "number",
+                            "key": "SCR_W",
+                            "description": "Game Window Width."
+                        },
+                        {
+                            "type": "number",
+                            "key": "SCR_H",
+                            "description": "Game window Heiht."
+                        }
+                    ],
+                    "item": "table"
+                }
+            },
+            "item": "category"
+        },
+        "structs": {
+            "name": "Structs",
+            "pageType": "table",
+            "subcategories": {
+                "Promise": {
+                    "name": "Promise",
+                    "description": "A promise is an object that can store a value to be retrieved by a future object.",
+                    "fields": [
+                        {
+                            "type": "Promise",
+                            "key": "next",
+                            "description": "Next promise"
+                        },
+                        {
+                            "type": "number",
+                            "key": "state",
+                            "description": "Promise state status (Promise enums)"
+                        },
+                        {
+                            "type": "table",
+                            "key": "queue",
+                            "description": "Table with next promises"
+                        },
+                        {
+                            "type": "function",
+                            "key": "success",
+                            "description": "Success callback function"
+                        },
+                        {
+                            "type": "function",
+                            "key": "failure",
+                            "description": "Failure callback function"
+                        }
+                    ],
+                    "realm": "shared",
+                    "item": "table"
+                }
+            },
+            "item": "category"
+        }
+    },
+    "title": "Documentation",
+    "icons": {}
+}

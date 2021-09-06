@@ -1,0 +1,58 @@
+.primitives a{
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    --tw-bg-opacity: 0.2;
+    background-color: rgba(77, 36, 173, var(--tw-bg-opacity));
+    border-radius: 0.375rem;
+    --tw-text-opacity: 1;
+    color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+.primitives a:last-of-type {
+    margin-right: 0.5rem;
+}
+
+.args a{
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    --tw-bg-opacity: 0.1;
+    background-color: rgba(77, 36, 173, var(--tw-bg-opacity));
+    border-radius: 0.375rem;
+    --tw-text-opacity: 1;
+    color: rgba(255, 255, 255, var(--tw-text-opacity));
+    font-size: .7em;
+}
+
+.argcount {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 1.8rem;
+    width: 2.8rem;
+    text-align: center;
+    line-height: 1.8rem;
+    font-weight: 700;
+    background: rgba(169, 63, 255, 0.466) none repeat scroll 0% 0%;
+    user-select: none;
+    border-radius: 0.45rem 0.1rem 0.1rem 0.45rem;
+    font-size: 1.4rem;
+}
+
+.code {
+    color: rgb(138, 138, 138);
+    margin-bottom: 12px;
+}
+
+.code pre code {
+    text-shadow: none !important;
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.code code span {
+    background: transparent !important;
+}

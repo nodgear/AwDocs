@@ -1,0 +1,30 @@
+{
+  "name": "ndocs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "marked": "^3.0.2",
+    "next": "11.1.2",
+    "prismjs": "^1.24.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-feather": "^2.0.9"
+  },
+  "devDependencies": {
+    "@types/marked": "^3.0.0",
+    "@types/prismjs": "^1.16.6",
+    "@types/react": "17.0.19",
+    "autoprefixer": "^10.3.3",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2",
+    "postcss": "^8.3.6",
+    "tailwindcss": "^2.2.9",
+    "typescript": "4.4.2"
+  }
+}
