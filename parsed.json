@@ -11,104 +11,6 @@
             "name": "Globals",
             "pageType": "function",
             "subcategories": {
-                "AW.UI:DrawArc": {
-                    "name": "AW.UI:DrawArc",
-                    "parameters": [
-                        {
-                            "type": "number",
-                            "name": "x",
-                            "description": "xPos"
-                        },
-                        {
-                            "type": "number",
-                            "name": "y",
-                            "description": "yPos"
-                        },
-                        {
-                            "type": "number",
-                            "name": "p",
-                            "description": "InitialPoint"
-                        },
-                        {
-                            "type": "number",
-                            "name": "rad",
-                            "description": "Radius"
-                        },
-                        {
-                            "type": "number",
-                            "name": "seg",
-                            "description": "Segments (points)"
-                        }
-                    ],
-                    "returns": [
-                        {
-                            "type": "color",
-                            "description": "color Color"
-                        }
-                    ],
-                    "realm": "client",
-                    "item": "function"
-                },
-                "AW.UI:CalculateArc": {
-                    "name": "AW.UI:CalculateArc",
-                    "parameters": [
-                        {
-                            "type": "number",
-                            "name": "x",
-                            "description": "xPos"
-                        },
-                        {
-                            "type": "number",
-                            "name": "y",
-                            "description": "yPos"
-                        },
-                        {
-                            "type": "number",
-                            "name": "p",
-                            "description": "InitialPoint"
-                        },
-                        {
-                            "type": "number",
-                            "name": "rad",
-                            "description": "Radius"
-                        },
-                        {
-                            "type": "number",
-                            "name": "seg",
-                            "description": "Segments (points)"
-                        }
-                    ],
-                    "returns": [
-                        {
-                            "type": "color",
-                            "description": "color Color"
-                        },
-                        {
-                            "type": "table",
-                            "description": "circle"
-                        }
-                    ],
-                    "realm": "client",
-                    "item": "function"
-                },
-                "AW.UI:DrawCachedArc": {
-                    "name": "AW.UI:DrawCachedArc",
-                    "parameters": [
-                        {
-                            "type": "string",
-                            "name": "Variable",
-                            "description": "with the circle table"
-                        }
-                    ],
-                    "returns": [
-                        {
-                            "type": "color",
-                            "description": "color Color"
-                        }
-                    ],
-                    "realm": "client",
-                    "item": "function"
-                },
                 "XLIB.tonumber_s": {
                     "name": "XLIB.tonumber_s",
                     "description": "Integer-safe tonumber\n\nThis function will return nil if the number to be converted\nexceeds the integer-definable range of IEEE 754 doubles\n\n@treturn[1] number The converted number, if the conversion is safe\n\n@treturn[2] nil Nil if the conversion would lose integer precision",
@@ -212,7 +114,7 @@
                 },
                 "DevCommand": {
                     "name": "DevCommand",
-                    "description": "Creates a concommand for developers & super admins<br>\nWorks just like a concommand, but supercharged with automatic permission detection and special keywords.<br>\nThis also removes and reloads the command when changes are made.",
+                    "description": "Creates a concommand for developers & super admins\nWorks just like a concommand, but supercharged with automatic permission detection and special keywords.\nThis also removes and reloads the command when changes are made.",
                     "parameters": [
                         {
                             "type": "string",
@@ -225,7 +127,7 @@
                             "description": "that command will run"
                         },
                         {
-                            "type": "boolean",
+                            "type": "realm",
                             "name": "realm",
                             "description": "( CLIENT or SERVER ), this defaults to SERVER even on client, so if you want your command to be clientside, you must use CLIENT"
                         },
@@ -240,74 +142,7 @@
                             "description": "Usage instructions, if needed."
                         }
                     ],
-                    "item": "function"
-                },
-                "AW.GUI:OpenCharCreation": {
-                    "name": "AW.GUI:OpenCharCreation",
-                    "parameters": [
-                        {
-                            "type": "pnlBody",
-                            "name": "Parent",
-                            "description": "panel"
-                        }
-                    ],
-                    "realm": "client",
-                    "internal": true,
-                    "item": "function"
-                },
-                "Sender:Send": {
-                    "name": "Sender:Send",
-                    "parameters": [
-                        {
-                            "type": "player|table|Recipientfilter|nil",
-                            "name": "pPlayer",
-                            "description": "Player we want to send the message to."
-                        }
-                    ],
-                    "returns": [
-                        {
-                            "type": "table",
-                            "description": "PacketSender PacketSender Metatable"
-                        }
-                    ],
-                    "item": "function"
-                },
-                "AW.NET.SIMPLE.Sender": {
-                    "name": "AW.NET.SIMPLE.Sender",
-                    "parameters": [
-                        {
-                            "type": "string",
-                            "name": "sNetName",
-                            "description": "The name/id of the Net receiver."
-                        }
-                    ],
-                    "returns": [
-                        {
-                            "type": "PacketSender",
-                            "description": "Metatable"
-                        }
-                    ],
-                    "item": "function"
-                },
-                "AW.NET.SIMPLE.Receiver": {
-                    "name": "AW.NET.SIMPLE.Receiver",
-                    "parameters": [
-                        {
-                            "type": "string",
-                            "name": "sNetName",
-                            "description": "The name/id of the Net receiver."
-                        },
-                        {
-                            "type": "functiontion",
-                            "name": "fCallback",
-                            "description": "The callback that should be assigned to that Net receiver."
-                        },
-                        {
-                            "type": "boolean",
-                            "name": "bIgnoreInvalid",
-                            "description": "If true it will still run the Net receiver when the player was invalid when received."
-                        }
-                    ],
+                    "realm": "shared",
                     "item": "function"
                 }
             },
@@ -792,12 +627,6 @@
             "name": "Modules",
             "pageType": "function",
             "subcategories": {
-                "AW.SQL": {
-                    "name": "AW.SQL",
-                    "pageType": "function",
-                    "subcategories": {},
-                    "item": "category"
-                },
                 "AW.JOBS": {
                     "name": "AW.JOBS",
                     "pageType": "function",
@@ -1284,21 +1113,21 @@
                     "item": "category",
                     "description": "## Responsible for all gamemode events and networking.\n\n# Why use the net module instead of normal netstrings:\n- No netstring limit, everything is registered as channels so hitting the limit is almost impossible.\n- Can be debugged easily by enabling the verboso mode, you can also install DBugR to see the stack.\n- Handles broadcast and server/client side code difference internally\n- Allows to attach networked values to entities, works similar to DarkRP netvars\nThanks @Alexwisft for his work on SantosRP and permission.\n\n# Gamevars:\nGamevars are only networked when their value is changed, and are defined first with a type for better networking.\n\nGamevar must be defined on the server AND the client!\n## Normal Gamevars:\n\n- Are sent only to one especific player (private)\n\n## Shared Gamevars:\n\n- Are sent to ALL clients every time it changes (public variables)\n"
                 },
-                "Player": {
-                    "name": "Player",
+                "AW.PLAYER": {
+                    "name": "AW.PLAYER",
                     "pageType": "function",
                     "subcategories": {
-                        "AW.PLAYER:UpdatePlayerMoveSpeed": {
-                            "name": "AW.PLAYER:UpdatePlayerMoveSpeed",
+                        "AW.PLAYER:ClearMoveSpeedModifiers": {
+                            "name": "AW.PLAYER:ClearMoveSpeedModifiers",
+                            "description": "Clears any speed modifier from the player.",
                             "parameters": [
                                 {
                                     "type": "player",
-                                    "name": "pPlayer",
-                                    "description": "Player which we should update"
+                                    "name": "Target",
+                                    "description": "player"
                                 }
                             ],
                             "realm": "server",
-                            "internal": true,
                             "item": "function"
                         },
                         "PLAYER:PerformInteraction": {
@@ -1322,14 +1151,7 @@
                             ],
                             "realm": "server",
                             "item": "function"
-                        }
-                    },
-                    "item": "category"
-                },
-                "AW.PLAYER": {
-                    "name": "AW.PLAYER",
-                    "pageType": "function",
-                    "subcategories": {
+                        },
                         "AW.PLAYER:CreateCharacter": {
                             "name": "AW.PLAYER:CreateCharacter",
                             "description": "Creates a character linked to this player.<br> stops and returns error msg if arguments are invalid.",
@@ -1401,7 +1223,15 @@
                             "item": "function"
                         }
                     },
-                    "item": "category"
+                    "item": "category",
+                    "description": "Applies pending move speed modifiers to said player."
+                },
+                "AW.GUI": {
+                    "name": "AW.GUI",
+                    "pageType": "function",
+                    "subcategories": {},
+                    "item": "category",
+                    "description": "Opens the character creation page on a panel\nThis function requires a parent panel in which it should open."
                 }
             },
             "item": "category"
@@ -1605,7 +1435,7 @@
                                 }
                             ],
                             "examples": [
-                                "```lua\nlocal deferred = require('deferred')\n\n--\n-- Converting callback-based API into promise-based is very straightforward:\n--\n-- 1) Create promise object\n-- 2) Start your asynchronous action\n-- 3) Resolve promise object whenever action is finished (only first resolution\n--    is accepted, others are ignored)\n-- 4) Reject promise object whenever action is failed (only first rejection is\n--    accepted, others are ignored)\n-- 5) Return promise object letting calling side to add a chain of callbacks to\n--    your asynchronous function\n\nfunction read(f)\n  local d = AW.Promises.new()\n  readasync(f, function(contents, err)\n      if err == nil then\n        d:resolve(contents)\n      else\n        d:reject(err)\n      end\n  end)\n  return d\nend\n\n-- You can now use read() like this:\nread('file.txt'):next(function(s)\n    print('File.txt contents: ', s)\n  end, function(err)\n    print('Error', err)\nend)\n```"
+                                "```lua\n\n--\n-- Converting callback-based API into promise-based is very straightforward:\n--\n-- 1) Create promise object\n-- 2) Start your asynchronous action\n-- 3) Resolve promise object whenever action is finished (only first resolution\n--    is accepted, others are ignored)\n-- 4) Reject promise object whenever action is failed (only first rejection is\n--    accepted, others are ignored)\n-- 5) Return promise object letting calling side to add a chain of callbacks to\n--    your asynchronous function\n\nfunction read(f)\n  local d = AW.Promises.new()\n  readasync(f, function(contents, err)\n      if err == nil then\n        d:resolve(contents)\n      else\n        d:reject(err)\n      end\n  end)\n  return d\nend\n\n-- You can now use read() like this:\nread('file.txt'):next(function(s)\n    print('File.txt contents: ', s)\n  end, function(err)\n    print('Error', err)\nend)\n```"
                             ],
                             "item": "function"
                         },
@@ -1715,6 +1545,114 @@
                     },
                     "item": "category",
                     "description": "A+ promises in Lua."
+                },
+                "UI": {
+                    "name": "UI",
+                    "pageType": "function",
+                    "subcategories": {
+                        "AW.UI:DrawArc": {
+                            "name": "AW.UI:DrawArc",
+                            "description": "Draw a poly arc",
+                            "parameters": [
+                                {
+                                    "type": "number",
+                                    "name": "x",
+                                    "description": "xPos"
+                                },
+                                {
+                                    "type": "number",
+                                    "name": "y",
+                                    "description": "yPos"
+                                },
+                                {
+                                    "type": "number",
+                                    "name": "p",
+                                    "description": "InitialPoint"
+                                },
+                                {
+                                    "type": "number",
+                                    "name": "rad",
+                                    "description": "Radius"
+                                },
+                                {
+                                    "type": "number",
+                                    "name": "seg",
+                                    "description": "Segments (points)"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "color",
+                                    "description": "color Color"
+                                }
+                            ],
+                            "realm": "client",
+                            "item": "function"
+                        },
+                        "AW.UI:CalculateArc": {
+                            "name": "AW.UI:CalculateArc",
+                            "description": "Returns a table with a poly arc for later cache",
+                            "parameters": [
+                                {
+                                    "type": "number",
+                                    "name": "x",
+                                    "description": "xPos"
+                                },
+                                {
+                                    "type": "number",
+                                    "name": "y",
+                                    "description": "yPos"
+                                },
+                                {
+                                    "type": "number",
+                                    "name": "p",
+                                    "description": "InitialPoint"
+                                },
+                                {
+                                    "type": "number",
+                                    "name": "rad",
+                                    "description": "Radius"
+                                },
+                                {
+                                    "type": "number",
+                                    "name": "seg",
+                                    "description": "Segments (points)"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "color",
+                                    "description": "color Color"
+                                },
+                                {
+                                    "type": "table",
+                                    "description": "circle"
+                                }
+                            ],
+                            "realm": "client",
+                            "item": "function"
+                        },
+                        "AW.UI:DrawCachedArc": {
+                            "name": "AW.UI:DrawCachedArc",
+                            "description": "Draws a previously cached arc",
+                            "parameters": [
+                                {
+                                    "type": "string",
+                                    "name": "Variable",
+                                    "description": "with the circle table"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "color",
+                                    "description": "color Color"
+                                }
+                            ],
+                            "realm": "client",
+                            "item": "function"
+                        }
+                    },
+                    "item": "category"
                 }
             },
             "item": "category"
