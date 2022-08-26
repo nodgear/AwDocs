@@ -834,8 +834,8 @@
                             ],
                             "references": [
                                 {
-                                    "name": "modules/AW.INVENTORY/AW.INVENTORY:GetEmptySlot",
-                                    "path": "AW.INVENTORY:GetEmptySlot"
+                                    "name": "GetEmptySlot",
+                                    "path": "modules/AW.INVENTORY/AW.INVENTORY:GetEmptySlot"
                                 }
                             ],
                             "item": "function"
