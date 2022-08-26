@@ -618,7 +618,7 @@
                         }
                     },
                     "item": "category",
-                    "description": "Registers, assings and controls job aspects of the gamemode."
+                    "description": "Applies all networked outfit to player\nIf the entity argument is used, the outfit will be applied to this outfit instead.\nApplying on specific entities is usefull for drawing panels for example.\nThis doesn't draw anything, just acts as a constructor for outfit entities, if you wan't to draw check the DrawOutfit below."
                 }
             },
             "item": "category"
@@ -627,6 +627,250 @@
             "name": "Modules",
             "pageType": "function",
             "subcategories": {
+                "AW.INVENTORY": {
+                    "name": "AW.INVENTORY",
+                    "pageType": "function",
+                    "subcategories": {
+                        "AW.INVENTORY:Register": {
+                            "name": "AW.INVENTORY:Register",
+                            "description": "Registers a new item on gamemode",
+                            "parameters": [
+                                {
+                                    "type": "table",
+                                    "name": "tItem",
+                                    "description": "Item table"
+                                }
+                            ],
+                            "realm": "shared",
+                            "references": [
+                                {
+                                    "name": "ItemTable",
+                                    "path": "structs/Items "
+                                }
+                            ],
+                            "item": "function"
+                        },
+                        "AW.INVENTORY:RegisterOutfit": {
+                            "name": "AW.INVENTORY:RegisterOutfit",
+                            "description": "Registers a new item outfit on gamemode\nThe xModel parameter allows you to make adjusments for each or many models, making sure the outfit will look good for everyone.",
+                            "parameters": [
+                                {
+                                    "type": "table",
+                                    "name": "tItem",
+                                    "description": "Item table"
+                                },
+                                {
+                                    "type": "table|string",
+                                    "name": "xModel",
+                                    "description": "The model string or table of models which this outfit is available to."
+                                },
+                                {
+                                    "type": "table",
+                                    "name": "outfit",
+                                    "description": "The outfit table"
+                                }
+                            ],
+                            "realm": "shared",
+                            "references": [
+                                {
+                                    "name": "ItemTable",
+                                    "path": "structs/Items "
+                                },
+                                {
+                                    "name": "OutfitTable",
+                                    "path": "structs/Outfits"
+                                }
+                            ],
+                            "item": "function"
+                        },
+                        "AW.INVENTORY:RegisterLimit": {
+                            "name": "AW.INVENTORY:RegisterLimit",
+                            "description": "Registers a category and a limit withing this category\nThe limit prevents the player from placing/dropping more than the defined value on the ground\nMultiple items can share the same category",
+                            "parameters": [
+                                {
+                                    "type": "string",
+                                    "name": "sID",
+                                    "description": "Category name/ID"
+                                },
+                                {
+                                    "type": "number",
+                                    "name": "nMax",
+                                    "description": "Max ammount allowed"
+                                }
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "AW.INVENTORY:GetItem": {
+                            "name": "AW.INVENTORY:GetItem",
+                            "description": "Returns the item table",
+                            "parameters": [
+                                {
+                                    "type": "string",
+                                    "name": "sItemID",
+                                    "description": "The item Unique ID"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "table",
+                                    "description": "Item Table"
+                                }
+                            ],
+                            "realm": "shared",
+                            "references": [
+                                {
+                                    "name": "ItemTable",
+                                    "path": "structs/Items"
+                                }
+                            ],
+                            "item": "function"
+                        },
+                        "AW.INVENTORY:GetItems": {
+                            "name": "AW.INVENTORY:GetItems",
+                            "description": "Returns a table with all registered items in the gamemode",
+                            "returns": [
+                                {
+                                    "type": "table",
+                                    "description": "Items"
+                                }
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "AW.INVENTORY:IsItemValid": {
+                            "name": "AW.INVENTORY:IsItemValid",
+                            "description": "Returns true if item with given ID exists on the gamemode",
+                            "parameters": [
+                                {
+                                    "type": "string",
+                                    "name": "sItemID",
+                                    "description": "Item Unique ID"
+                                }
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "AW.INVENTORY:ModelHasOutfit": {
+                            "name": "AW.INVENTORY:ModelHasOutfit",
+                            "description": "Returns true if there's a registered outfit for said model.\nThe second parameter is the outfit to be checked",
+                            "parameters": [
+                                {
+                                    "type": "string",
+                                    "name": "sModel",
+                                    "description": "The model to be checked"
+                                },
+                                {
+                                    "type": "string",
+                                    "name": "sItemID",
+                                    "description": "The item Unique ID"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "boolean",
+                                    "description": "Has Outfit"
+                                }
+                            ],
+                            "realm": "shared",
+                            "item": "function"
+                        },
+                        "AW.INVENTORY:GetEmptySlot": {
+                            "name": "AW.INVENTORY:GetEmptySlot",
+                            "description": "Returns the next empty slot on user's inventory\nReturns 0 if there's no space left",
+                            "parameters": [
+                                {
+                                    "type": "player",
+                                    "name": "pPlayer",
+                                    "description": "Player to search inventory"
+                                }
+                            ],
+                            "realm": "server",
+                            "item": "function"
+                        },
+                        "AW.INVENTORY:Add": {
+                            "name": "AW.INVENTORY:Add",
+                            "description": "Adds item to player inventory\nWhen slot argument is missing, the next available slot is used",
+                            "parameters": [
+                                {
+                                    "type": "player",
+                                    "name": "pPlayer",
+                                    "description": "Player to add item"
+                                },
+                                {
+                                    "type": "sItemUId",
+                                    "name": "Item",
+                                    "description": "Unique ID"
+                                },
+                                {
+                                    "type": "number|nil",
+                                    "name": "nSlot",
+                                    "description": "slot on which the item will be inserted, if nil the nearest empty slot will be used."
+                                },
+                                {
+                                    "type": "number|nil",
+                                    "name": "nAmount",
+                                    "description": "How many of the same item, 1 if nil/missing."
+                                },
+                                {
+                                    "type": "table|nil",
+                                    "name": "tData",
+                                    "description": "Item data table"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "promise",
+                                    "description": "Inventory promise after item is added to database and networked."
+                                }
+                            ],
+                            "examples": [
+                                "```lua\nAW.INVENTORY:Add(Entity(1), \"ak47\", nil, {durability: .3})\n```"
+                            ],
+                            "realm": "server",
+                            "warnings": [
+                                "This function will fail silently if player inventory is full, consider checking if the player has space with AW.INVENTORY:GetEmptySlot before.",
+                                "This function is able to stack items that should not be able to for the sake of special situations."
+                            ],
+                            "references": [
+                                {
+                                    "name": "modules/AW.INVENTORY/AW.INVENTORY:GetEmptySlot",
+                                    "path": "AW.INVENTORY:GetEmptySlot"
+                                }
+                            ],
+                            "item": "function"
+                        },
+                        "AW.INVENTORY:CreateItem": {
+                            "name": "AW.INVENTORY:CreateItem",
+                            "description": "Creates and spawns item in specified location",
+                            "parameters": [
+                                {
+                                    "type": "vector|nil",
+                                    "name": "vPos",
+                                    "description": "Position to be spawned at, if pOwner is defined, this is ignored and the gamemode will figure the best way to spawn it."
+                                },
+                                {
+                                    "type": "angle|nil",
+                                    "name": "aAng",
+                                    "description": "Angle to be spawned with or nil for Angle(0,0,0)"
+                                },
+                                {
+                                    "type": "player|nil",
+                                    "name": "pOwner",
+                                    "description": "Owner of the item, leave nil to allow anyone to pick it up."
+                                },
+                                {
+                                    "type": "table",
+                                    "name": "tData",
+                                    "description": "Item data table ex: {amount:2, durability: .3}"
+                                }
+                            ],
+                            "realm": "server",
+                            "item": "function"
+                        }
+                    },
+                    "item": "category"
+                },
                 "AW.JOBS": {
                     "name": "AW.JOBS",
                     "pageType": "function",
@@ -1025,7 +1269,7 @@
                                 {
                                     "type": "player|nil",
                                     "name": "pPlayer",
-                                    "description": "Player which the gamevar should be read (ONLY NEEDED ON SERVER)"
+                                    "description": "Player which the gamevar should be read"
                                 },
                                 {
                                     "type": "any",
@@ -1502,8 +1746,27 @@
                                 }
                             ],
                             "examples": [
-                                "```lua\n-- returns a promise that gets rejected after a certain timeout\nfunction timeout(sec)\n  local d = deferred.new()\n  settimeout(function()\n      d:reject('Timeout')\n    end, sec)\n  return d\nend\n\nAW.Promises.first({\n    read(somefile), -- resolves promise with contents, or rejects with error\n    timeout(5),\n  }):next(function(result)\n      -- file was read successfully...\n    end, function(err)\n      -- either timeout or I/O error...\n  end)\n```"
+                                "```lua\n-- returns a promise that gets rejected after a certain timeout\nfunction timeout(sec)\n  local d = AW.Promises.new()\n  settimeout(function()\n      d:reject('Timeout')\n    end, sec)\n  return d\nend\n\nAW.Promises.first({\n    read(somefile), -- resolves promise with contents, or rejects with error\n    timeout(5),\n  }):next(function(result)\n      -- file was read successfully...\n    end, function(err)\n      -- either timeout or I/O error...\n  end)\n```"
                             ],
+                            "item": "function"
+                        },
+                        "M.timeout": {
+                            "name": "M.timeout",
+                            "description": "Waits for a given time and rejects if timer ends\nShould be used with AW.Promise.first, as it returns the first finished promise",
+                            "parameters": [
+                                {
+                                    "type": "number",
+                                    "name": "sec",
+                                    "description": "Seconds to wait"
+                                }
+                            ],
+                            "returns": [
+                                {
+                                    "type": "promise",
+                                    "description": "Promise"
+                                }
+                            ],
+                            "realm": "shared",
                             "item": "function"
                         },
                         "AW.Promises.resolve": {
@@ -1833,6 +2096,119 @@
                         }
                     ],
                     "realm": "shared",
+                    "item": "table"
+                },
+                "Items": {
+                    "name": "Items",
+                    "fields": [
+                        {
+                            "type": "string",
+                            "key": "Name",
+                            "description": "Item Name"
+                        },
+                        {
+                            "type": "string",
+                            "key": "Description",
+                            "description": "Item short description"
+                        },
+                        {
+                            "type": "string",
+                            "key": "UID",
+                            "description": "Unique identifier"
+                        },
+                        {
+                            "type": "string",
+                            "key": "Class",
+                            "description": "Item entity class"
+                        },
+                        {
+                            "type": "number",
+                            "key": "Rarity",
+                            "description": "Item rarity"
+                        },
+                        {
+                            "type": "boolean",
+                            "key": "Buy",
+                            "description": "Allowed to be sold by npcs"
+                        },
+                        {
+                            "type": "boolean",
+                            "key": "Sell",
+                            "description": "Allowed to be purchased by npcs"
+                        },
+                        {
+                            "type": "number",
+                            "key": "Price",
+                            "description": "Price for it if Buy is set to true"
+                        },
+                        {
+                            "type": "string",
+                            "key": "Model",
+                            "description": "Item model"
+                        },
+                        {
+                            "type": "string",
+                            "key": "Type",
+                            "description": "[Item Type](/docs/enums/Item types))"
+                        },
+                        {
+                            "type": "string",
+                            "key": "Slot",
+                            "description": "[Item Equipment Slot](/docs/enums/Slot types)"
+                        },
+                        {
+                            "type": "boolean",
+                            "key": "Equip",
+                            "description": "Can this item be equipped."
+                        },
+                        {
+                            "type": "boolean",
+                            "key": "Iternal",
+                            "description": "If true, this item can't be unequipped by the player."
+                        }
+                    ],
+                    "realm": "shared",
+                    "item": "table"
+                },
+                "Outfits": {
+                    "name": "Outfits",
+                    "fields": [
+                        {
+                            "type": "table",
+                            "key": "Item",
+                            "description": "position override (Vector) position={x,y,z}"
+                        },
+                        {
+                            "type": "table",
+                            "key": "Item",
+                            "description": "angle override (Angle) angle = {x,y,z}"
+                        },
+                        {
+                            "type": "string",
+                            "key": "bone",
+                            "description": "Bone to be attached (Ignored if bone merged)"
+                        },
+                        {
+                            "type": "boolean",
+                            "key": "boneMerge",
+                            "description": "If true, the item will be bonemerged."
+                        },
+                        {
+                            "type": "string",
+                            "key": "model",
+                            "description": "Outfit model"
+                        },
+                        {
+                            "type": "string",
+                            "key": "identifier",
+                            "description": "Unique ID (can be the same as item)"
+                        },
+                        {
+                            "type": "string",
+                            "key": "texture",
+                            "description": "Texture to be applied on item."
+                        }
+                    ],
                     "item": "table"
                 },
                 "NetVartypes": {
