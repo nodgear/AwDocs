@@ -37,6 +37,7 @@ export interface FunctionPage {
 	realm?: string;
 	internal?: boolean;
 	item: "function";
+	fields?: FieldInfo[]
 }
 
 export interface FieldInfo {

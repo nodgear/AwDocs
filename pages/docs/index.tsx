@@ -14,8 +14,8 @@ const DocsLandingPage: NextPage = () => {
             <title>{`${title} : ${route.query.category}`}</title>
             <link rel="icon" href="/favicon.ico" />
         </Head>
-        <div className="flex w-full h-full bg-background rounded-br-md">
-
+        <div className="flex items-center justify-center w-full h-full bg-background rounded-br-md">
+            <span className='font-bold text-white font-lg'>Select a tab to start</span>
         </div>
     </>
 }
